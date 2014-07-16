@@ -116,6 +116,10 @@ ruby_block 'Copy Jetty lib files' do
   end
 end
 
+log "AZG version=#{version}" do
+  level :error
+end
+
 ruby_block 'Copy Jetty module files' do
   block do
     Chef::Log.info "Copying Jetty module files into #{node['jetty']['home']}"
@@ -127,7 +131,8 @@ ruby_block 'Copy Jetty module files' do
   action :create
 
   only_if do
-    Dir[File.join(node['jetty']['home'], 'modules', '*')].empty? and version >= 9
+    Dir[File.join(node['jetty']['home'], 'modules', '*')].empty? and 
+    version >= 9
   end
 end
 
