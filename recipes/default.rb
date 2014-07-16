@@ -116,10 +116,6 @@ ruby_block 'Copy Jetty lib files' do
   end
 end
 
-log "AZG version=#{version}" do
-  level :error
-end
-
 ruby_block 'Copy Jetty module files' do
   block do
     Chef::Log.info "Copying Jetty module files into #{node['jetty']['home']}"
