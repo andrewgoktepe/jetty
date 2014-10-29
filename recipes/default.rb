@@ -127,7 +127,7 @@ ruby_block 'Copy Jetty module files' do
   action :create
 
   only_if do
-    Dir[File.join(node['jetty']['home'], 'modules', '*')].empty? and 
+    Dir[File.join(node['jetty']['home'], 'modules', '*')].empty? && 
     version >= 9
   end
 end
